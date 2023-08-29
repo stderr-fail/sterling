@@ -3,6 +3,7 @@ package fail.stderr.sterling.plugins
 import fail.stderr.sterling.plugin.http.PluginHttpEndpoint
 import fail.stderr.sterling.plugin.http.response.IPluginHttpResponse
 import fail.stderr.sterling.plugin.http.response.ViewPluginHttpResponse
+import jakarta.servlet.http.HttpServletRequest
 import org.springframework.web.servlet.ModelAndView
 
 /**
@@ -15,7 +16,10 @@ class PluginRequestProxy(
   val endpoint: PluginHttpEndpoint,
 ) {
 
-  fun execute(): Any? {
+  TODO: make this method take in (all?) the stuff that @ReuestMapping supports, stick it on a
+  context object and pass it to a Consumer<Context> instead of a java.lang.Method so we can type it and use functional references
+
+  fun execute(req: HttpServletRequest): Any? {
 
     val originalResult = endpoint.handlerMethod.invoke(endpoint.handler)
 

@@ -5,6 +5,7 @@ import fail.stderr.sterling.plugin.http.PluginHttpEndpoint;
 import fail.stderr.sterling.plugin.http.response.IPluginHttpResponse;
 import fail.stderr.sterling.plugin.http.response.ViewPluginHttpResponse;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
