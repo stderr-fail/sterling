@@ -1,0 +1,35 @@
+{
+  // built-in's
+  "id": "[UUID]",
+  "type": "folder",
+  "displayName": "My Project Plan",
+  "children": [
+    {
+      "type": "plugin.HttpRequest",
+      "data": {
+        "method": {
+          "type": "primitive.String",
+          "data": {
+            "value": "GET"
+          },
+        },
+        "connectTimeoutMillis": {
+          "type": "primitive.Long",
+          "data": {
+            "value": 1000
+          },
+        },
+        "url": {
+          "type": "script.SpEL",
+          "data": {
+            "expression": "new String('http') + '://localhost:8080'"
+          }
+        },
+        "entity": {
+          "type": "null",
+          "data": null,
+        },
+      }
+    }
+  ]
+}

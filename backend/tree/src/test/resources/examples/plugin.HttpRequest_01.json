@@ -1,0 +1,40 @@
+{
+  "id": "[UUID]",
+  "type": "plugin.Folder",
+  "displayName": "My Project Plan",
+  "data": {
+    "color": "red"
+  },
+  "children": [
+    {
+      "id": "[UUID]",
+      "type": "plugin.HttpRequest",
+      "displayName": "Get root index",
+      "data": {
+        "method": {
+          "type": "primitive.String",
+          "data": {
+            "value": "GET"
+          }
+        },
+        "connectTimeoutMillis": {
+          "type": "primitive.Long",
+          "data": {
+            "value": 1000
+          }
+        },
+        "url": {
+          "type": "script.SpEL",
+          "data": {
+            "expression": "new String('http') + '://localhost:8080'"
+          }
+        },
+        "entity": {
+          "type": "null",
+          "data": null
+        }
+      },
+      "children": []
+    }
+  ]
+}
