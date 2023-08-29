@@ -1,14 +1,11 @@
 package fail.stderr.sterling.plugin.http;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
 /**
  * The contract to provide a method which handles an HTTP endpoint
  */
-public interface IPluginHttpEndpoint {
+public interface PluginHttpEndpoint {
 
-  Methods[] getMethods();
+  Method getMethod();
 
   /**
    * This will be prefixed with "/plugins/${PLUGIN_NAME}"
@@ -24,10 +21,10 @@ public interface IPluginHttpEndpoint {
    *
    * @return
    */
-  Method getHandlerMethod();
+  java.lang.reflect.Method getHandlerMethod();
 
 
-  enum Methods {
+  enum Method {
     GET, POST, PUT, DELETE
   }
 

@@ -1,8 +1,8 @@
 package fail.stderr.sterling.plugins
 
-import fail.stderr.sterling.plugin.IPlugin
-import fail.stderr.sterling.plugin.http.IPluginHttpEndpoint
-import fail.stderr.sterling.plugin.registrars.IPluginRegistrar
+import fail.stderr.sterling.plugin.Plugin
+import fail.stderr.sterling.plugin.http.PluginHttpEndpoint
+import fail.stderr.sterling.plugin.registrars.PluginRegistrar
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.RequestMethod
@@ -12,36 +12,34 @@ import org.springframework.web.util.pattern.PathPatternParser
 import kotlin.reflect.jvm.javaMethod
 
 @Service
-class PluginRegistrar : IPluginRegistrar {
+class PluginRegistrar : PluginRegistrar {
 
   @Autowired
   lateinit var requestMappingHandlerMapping: RequestMappingHandlerMapping
 
-  val plugins: MutableList<IPlugin> = mutableListOf()
+  val plugins: MutableList<Plugin> = mutableListOf()
 
-  fun register(plugin: IPlugin) {
+  fun register(plugin: Plugin) {
     synchronized(plugins) { plugins.add(plugin) }
   }
 
   fun start() {
     plugins.forEach { plugin ->
-      plugin.registerHttpEndpoints(this)
+      plugin.httpEndpoints?.forEach(::registerEndpoint)
     }
   }
 
-  override fun registerEndpoint(endpoint: IPluginHttpEndpoint) {
+  override fun registerEndpoint(endpoint: PluginHttpEndpoint) {
 
     val options = RequestMappingInfo.BuilderConfiguration()
     options.patternParser = PathPatternParser()
-
-    val methods = endpoint.methods.map { RequestMethod.resolve(it.name) }.toTypedArray()
 
     val proxy = PluginRequestProxy(endpoint)
 
     requestMappingHandlerMapping.registerMapping(
       RequestMappingInfo
         .paths(*endpoint.paths)
-        .methods(*methods)
+        .methods(RequestMethod.resolve(endpoint.method.name))
         .options(options)
         .build(),
       proxy,

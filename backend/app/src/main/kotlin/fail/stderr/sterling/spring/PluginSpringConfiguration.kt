@@ -1,9 +1,8 @@
 package fail.stderr.sterling.spring
 
-import jakarta.annotation.PostConstruct
-import fail.stderr.sterling.plugin.IPlugin
 import fail.stderr.sterling.plugin.Plugin
 import fail.stderr.sterling.plugins.PluginRegistrar
+import jakarta.annotation.PostConstruct
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Configuration
 import java.util.*
@@ -17,15 +16,10 @@ class PluginSpringConfiguration {
 
   @PostConstruct
   fun init() {
-    val plugins = ServiceLoader.load(IPlugin::class.java)
+    val plugins = ServiceLoader.load(Plugin::class.java)
     plugins.forEach(pluginRegistrar::register)
     pluginRegistrar.start()
 
-
-    val plugins2 = ServiceLoader.load(Plugin::class.java)
-    plugins2.forEach {
-      println("here!")
-    }
   }
 
 }

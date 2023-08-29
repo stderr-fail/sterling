@@ -1,26 +1,28 @@
 package fail.stderr.sterling.plugins.http;
 
-import fail.stderr.sterling.plugin.IPlugin;
-import fail.stderr.sterling.plugin.http.IPluginHttpEndpoint;
+import fail.stderr.sterling.plugin.Plugin;
+import fail.stderr.sterling.plugin.http.PluginHttpEndpoint;
 import fail.stderr.sterling.plugin.http.response.IPluginHttpResponse;
 import fail.stderr.sterling.plugin.http.response.ViewPluginHttpResponse;
-import fail.stderr.sterling.plugin.registrars.IPluginHttpRegistrar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Stream;
 
-public class HttpPlugin implements IPlugin {
+public class HttpPlugin implements Plugin {
 
   public HttpPlugin() {
     System.out.println("here!");
   }
 
   @Override
-  public void registerHttpEndpoints(IPluginHttpRegistrar registrar) {
-    registrar.registerEndpoint(IPluginHttpEndpoint.Methods.GET, "/plugins/http/config", this, safeMethod("httpConfig"));
-    registrar.registerEndpoint(IPluginHttpEndpoint.Methods.GET, "/plugins/http/streaming", this, safeMethod("streaming"));
-    registrar.registerEndpoint(IPluginHttpEndpoint.Methods.GET, "/plugins/http/stream-data", this, safeMethod("streamData"));
+  public List<PluginHttpEndpoint> getHttpEndpoints() {
+    final ArrayList<PluginHttpEndpoint> endpoints = new ArrayList<>();
+    endpoints.add(createHttpEndpoint(PluginHttpEndpoint.Method.GET, "/plugins/http/config", this, methodRef("httpConfig")));
+    endpoints.add(createHttpEndpoint(PluginHttpEndpoint.Method.GET, "/plugins/http/streaming", this, methodRef("streaming")));
+    endpoints.add(createHttpEndpoint(PluginHttpEndpoint.Method.GET, "/plugins/http/stream-data", this, methodRef("streamData")));
+    return endpoints;
   }
 
   public IPluginHttpResponse httpConfig() {

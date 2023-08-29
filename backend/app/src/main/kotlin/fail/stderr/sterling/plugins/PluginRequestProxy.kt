@@ -1,6 +1,6 @@
 package fail.stderr.sterling.plugins
 
-import fail.stderr.sterling.plugin.http.IPluginHttpEndpoint
+import fail.stderr.sterling.plugin.http.PluginHttpEndpoint
 import fail.stderr.sterling.plugin.http.response.IPluginHttpResponse
 import fail.stderr.sterling.plugin.http.response.ViewPluginHttpResponse
 import org.springframework.web.servlet.ModelAndView
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView
  * in [convertToSpringResponseType]
  */
 class PluginRequestProxy(
-  val endpoint: IPluginHttpEndpoint,
+  val endpoint: PluginHttpEndpoint,
 ) {
 
   fun execute(): Any? {
