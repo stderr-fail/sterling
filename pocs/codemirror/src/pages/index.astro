@@ -1,6 +1,7 @@
 ---
 import "../css/inter.css";
 import {Test} from "../components/Test";
+import {SimpleEditor} from "../components/SimpleEditor";"../components/SimpleEditor";
 ---
 
 <html lang="en">
@@ -19,5 +20,6 @@ import {Test} from "../components/Test";
 <body>
 <h1>Astro</h1>
 <Test client:only="react"/>
+<SimpleEditor client:only="react"/>
 </body>
 </html>
