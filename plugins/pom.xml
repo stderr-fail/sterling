@@ -22,6 +22,7 @@
 
   <modules>
     <module>http</module>
+    <module>prop-converters</module>
   </modules>
 
   <dependencies>

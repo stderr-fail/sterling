@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>sterling</title>
+  <th:block th:insert="~{mixins/fonts :: head-content}"></th:block>
+  <th:block th:insert="~{mixins/tailwind :: head-content}"></th:block>
+  <th:block th:insert="~{mixins/htmx :: head-content}"></th:block>
+  <th:block th:insert="~{mixins/hyperscript :: head-content}"></th:block>
+
+  <style type="text/css">
+    .hide {
+      visibility: hidden;
+    }
+  </style>
+
+</head>
+<body id="body" class="hide">
+
+<main class="flex">
+  <nav class="flex-none">
+    nav
+  </nav>
+  <article class="flex-1">
+    main
+  </article>
+</main>
+
+<script>
+  window.addEventListener('load', function () {
+    document.body.classList.remove("hide")
+
+  }, false);
+</script>
+
+</body>
+
+</html>

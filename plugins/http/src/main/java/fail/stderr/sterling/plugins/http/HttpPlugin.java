@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class HttpPlugin implements Plugin {
+public class HttpPlugin implements Plugin, fail.stderr.sterling.plugin.contracts.HttpPlugin {
 
   public HttpPlugin() {
     System.out.println("here!");

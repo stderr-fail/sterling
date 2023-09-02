@@ -5,7 +5,7 @@ import fail.stderr.sterling.plugin.http.PluginHttpEndpoint;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public interface BasePlugin {
+public interface HttpPlugin {
 
   default List<PluginHttpEndpoint> getHttpEndpoints() {
     return Collections.emptyList();
