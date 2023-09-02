@@ -25,11 +25,11 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>fail.stderr.sterling</groupId>
-      <artifactId>plugin-api</artifactId>
-      <version>${sterling-version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>fail.stderr.sterling</groupId>-->
+<!--      <artifactId>plugin-api</artifactId>-->
+<!--      <version>${sterling-version}</version>-->
+<!--    </dependency>-->
   </dependencies>
 
   <dependencyManagement>

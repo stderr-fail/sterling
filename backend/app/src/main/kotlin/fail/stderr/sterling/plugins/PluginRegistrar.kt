@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
 import org.springframework.web.util.pattern.PathPatternParser
-import kotlin.reflect.jvm.javaMethod
 
 @Service
 class PluginRegistrar : PluginRegistrar {
@@ -34,16 +33,14 @@ class PluginRegistrar : PluginRegistrar {
     val options = RequestMappingInfo.BuilderConfiguration()
     options.patternParser = PathPatternParser()
 
-    val proxy = PluginRequestProxy(endpoint)
-
     requestMappingHandlerMapping.registerMapping(
       RequestMappingInfo
         .paths(*endpoint.paths)
         .methods(RequestMethod.resolve(endpoint.method.name))
         .options(options)
         .build(),
-      proxy,
-      PluginRequestProxy::execute.javaMethod!!,
+      endpoint.handler,
+      endpoint.handlerMethod,
     )
 
   }
