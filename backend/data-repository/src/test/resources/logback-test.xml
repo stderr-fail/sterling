@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] [%logger] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+<!--  <logger name="com.zaxxer.hikari" level="INFO"/>-->
+<!--  <logger name="org.springframework" level="INFO"/>-->
+<!--  <logger name="org.flywaydb" level="INFO"/>-->
+<!--  <logger name="org.apache" level="INFO"/>-->
+<!--  <logger name="org.thymeleaf" level="INFO"/>-->
+
+  <logger name="fail.stderr.sterling" level="DEBUG"/>
+
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>

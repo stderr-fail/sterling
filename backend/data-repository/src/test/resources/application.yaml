@@ -1,10 +1,11 @@
 spring:
   datasource:
-    url: "jdbc:sqlite://${project.basedir}/sterling.db"
+    url: "jdbc:sqlite://${project.basedir}/sterling-datarepository-test.db"
   flyway:
+    url: "jdbc:sqlite://${project.basedir}/sterling-datarepository-test.db"
     locations: "classpath:db/migration"
     baseline-on-migrate: true
-    cleanDisabled: false
+    clean-disabled: false
   thymeleaf:
     cache: false
     check-template: true

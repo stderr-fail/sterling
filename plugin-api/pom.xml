@@ -16,6 +16,7 @@
     <java.version>17</java.version>
 
     <jackson.version>2.15.2</jackson.version>
+    <jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
 
   </properties>
 
@@ -42,6 +43,12 @@
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>6.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>${jetbrains-annotations.version}</version>
     </dependency>
 
   </dependencies>

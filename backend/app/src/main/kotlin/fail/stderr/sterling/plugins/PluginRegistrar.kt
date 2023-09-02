@@ -1,11 +1,11 @@
 package fail.stderr.sterling.plugins
 
 import fail.stderr.sterling.plugin.Plugin
-import fail.stderr.sterling.plugin.contracts.HttpPlugin
-import fail.stderr.sterling.plugin.contracts.PropConverterPlugin
+import fail.stderr.sterling.plugin.contractold.HttpPlugin
+import fail.stderr.sterling.plugin.contractold.PropConverterPlugin
 import fail.stderr.sterling.plugin.http.PluginHttpEndpoint
 import fail.stderr.sterling.plugin.propconverter.PropConverter
-import fail.stderr.sterling.plugin.registrars.PluginRegistrar
+import fail.stderr.sterling.plugin.registrar.PluginRegistrar
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.RequestMethod

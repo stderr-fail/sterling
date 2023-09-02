@@ -1,4 +1,4 @@
-package fail.stderr.sterling.plugin.registrars;
+package fail.stderr.sterling.plugin.registrar;
 
 import fail.stderr.sterling.plugin.http.PluginHttpEndpoint;
 

@@ -1,6 +1,6 @@
 package fail.stderr.sterling.plugins.propconverters;
 
-import fail.stderr.sterling.plugin.contracts.PropConverterPlugin;
+import fail.stderr.sterling.plugin.contractold.PropConverterPlugin;
 import fail.stderr.sterling.plugin.propconverter.PropConverter;
 import fail.stderr.sterling.plugins.propconverters.impl.BooleanPropConverter;
 import fail.stderr.sterling.plugins.propconverters.impl.IntegerPropConverter;

@@ -1,4 +1,4 @@
-package fail.stderr.sterling.plugin.contracts;
+package fail.stderr.sterling.plugin.contractold;
 
 import fail.stderr.sterling.plugin.http.PluginHttpEndpoint;
 

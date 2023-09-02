@@ -18,6 +18,9 @@
     <java.version>17</java.version>
 
     <sterling-version>1.0.0-SNAPSHOT</sterling-version>
+
+
+
   </properties>
 
   <modules>
@@ -26,15 +29,28 @@
   </modules>
 
   <dependencies>
+
     <dependency>
       <groupId>fail.stderr.sterling</groupId>
       <artifactId>plugin-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+    </dependency>
+
   </dependencies>
 
   <dependencyManagement>
     <dependencies>
+
       <dependency>
         <groupId>fail.stderr.sterling</groupId>
         <artifactId>plugin-bom</artifactId>
@@ -42,6 +58,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
     </dependencies>
   </dependencyManagement>
 
