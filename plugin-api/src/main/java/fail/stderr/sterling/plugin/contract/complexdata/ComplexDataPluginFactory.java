@@ -5,6 +5,6 @@ import org.jetbrains.annotations.NotNull;
 public interface ComplexDataPluginFactory {
 
   @NotNull
-  ComplexDataPlugin create(@NotNull ComplexDataPluginCreateContext context) throws Exception;
+  ComplexDataPlugin<?> create(@NotNull ComplexDataPluginCreateContext context) throws Exception;
 
 }

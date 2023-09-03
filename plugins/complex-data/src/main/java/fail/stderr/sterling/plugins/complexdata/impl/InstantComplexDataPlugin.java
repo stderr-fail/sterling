@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import fail.stderr.sterling.plugin.contract.complexdata.ComplexDataPlugin;
 import fail.stderr.sterling.plugins.complexdata.data.InstantComplexDataValue;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.time.Instant;
@@ -17,17 +18,17 @@ import java.time.Instant;
 public class InstantComplexDataPlugin implements ComplexDataPlugin<InstantComplexDataValue> {
 
   @Override
-  public StdSerializer<InstantComplexDataValue> createSerializer() {
+  public @NotNull StdSerializer<InstantComplexDataValue> createSerializer() {
     return new Serializer();
   }
 
   @Override
-  public StdDeserializer<InstantComplexDataValue> createDeserializer() {
+  public @NotNull StdDeserializer<InstantComplexDataValue> createDeserializer() {
     return new Deserializer();
   }
 
   @Override
-  public Class<InstantComplexDataValue> getType() {
+  public @NotNull Class<InstantComplexDataValue> getType() {
     return InstantComplexDataValue.class;
   }
 

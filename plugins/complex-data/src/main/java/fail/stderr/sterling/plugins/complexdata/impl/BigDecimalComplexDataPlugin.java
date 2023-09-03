@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import fail.stderr.sterling.plugin.contract.complexdata.ComplexDataPlugin;
 import fail.stderr.sterling.plugins.complexdata.data.BigDecimalComplexDataValue;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -17,16 +18,19 @@ import java.math.BigDecimal;
 public class BigDecimalComplexDataPlugin implements ComplexDataPlugin<BigDecimalComplexDataValue> {
 
   @Override
+  @NotNull
   public StdSerializer<BigDecimalComplexDataValue> createSerializer() {
     return new Serializer();
   }
 
   @Override
+  @NotNull
   public StdDeserializer<BigDecimalComplexDataValue> createDeserializer() {
     return new Deserializer();
   }
 
   @Override
+  @NotNull
   public Class<BigDecimalComplexDataValue> getType() {
     return BigDecimalComplexDataValue.class;
   }
