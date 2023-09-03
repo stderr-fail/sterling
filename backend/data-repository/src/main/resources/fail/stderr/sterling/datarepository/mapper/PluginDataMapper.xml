@@ -5,7 +5,17 @@
 <mapper namespace="fail.stderr.sterling.datarepository.mapper.PluginDataMapper">
 
   <insert id="insert">
-    
+    insert into plugindata (pluginId, created, modified, version, json)
+    VALUES (#{pluginId},
+            #{created},
+            #{modified},
+            #{version},
+            #{json})
+
   </insert>
+
+  <select id="selectAll" resultType="fail.stderr.sterling.datarepository.model.PluginData">
+    select * from plugindata
+  </select>
 
 </mapper>

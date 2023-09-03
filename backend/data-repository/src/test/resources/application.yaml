@@ -6,9 +6,14 @@ spring:
     locations: "classpath:db/migration"
     baseline-on-migrate: true
     clean-disabled: false
+    # enabled: false
   thymeleaf:
     cache: false
     check-template: true
-#    check if we want enable-spring-el-compiler ?
+    #    check if we want enable-spring-el-compiler ?
     enable-spring-el-compiler: false
-#    prefix: classpath:/templates/
+    # prefix: classpath:/templates/
+mybatis:
+#  mapper-locations: "classpath:/fail/stderr/sterling/**/*Mapper.xml"
+  mapper-locations: "classpath:/fail/stderr/sterling/datarepository/mapper/PluginDataMapper.xml"
+#  mapper-locations: classpath:fail.stderr.sterling.datarepository.mapper

@@ -13,4 +13,51 @@ public class PluginData {
   protected Integer version;
   protected JsonNode json;
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getPluginId() {
+    return pluginId;
+  }
+
+  public void setPluginId(String pluginId) {
+    this.pluginId = pluginId;
+  }
+
+  public Instant getCreated() {
+    return created;
+  }
+
+  public void setCreated(Instant created) {
+    this.created = created;
+  }
+
+  public Instant getModified() {
+    return modified;
+  }
+
+  public void setModified(Instant modified) {
+    this.modified = modified;
+  }
+
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+  public JsonNode getJson() {
+    return json;
+  }
+
+  public void setJson(JsonNode json) {
+    this.json = json;
+  }
 }
