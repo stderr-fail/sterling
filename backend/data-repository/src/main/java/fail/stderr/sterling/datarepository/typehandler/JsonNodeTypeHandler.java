@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.jetbrains.annotations.Nullable;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -31,10 +32,24 @@ public class JsonNodeTypeHandler extends BaseTypeHandler<JsonNode> {
 
   @Override
   public JsonNode getNullableResult(ResultSet rs, String columnName) throws SQLException {
-    final String json = rs.getString(columnName);
-    if (null != json) {
+    return getNullableResult(rs.getString(columnName));
+  }
+
+  @Override
+  public JsonNode getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    return getNullableResult(rs.getString(columnIndex));
+  }
+
+  @Override
+  public JsonNode getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+    return getNullableResult(cs.getString(columnIndex));
+  }
+
+  @Nullable
+  protected JsonNode getNullableResult(@Nullable String data) throws SQLException {
+    if (null != data) {
       try {
-        final JsonNode jsonNode = objectMapper.readValue(json, JsonNode.class);
+        final JsonNode jsonNode = objectMapper.readValue(data, JsonNode.class);
         return jsonNode;
       } catch (JsonProcessingException e) {
         throw new SQLException("Failed to deserialize JSON string from DB into a JsonNode instance: " + e.getMessage(), e);
@@ -43,13 +58,4 @@ public class JsonNodeTypeHandler extends BaseTypeHandler<JsonNode> {
     return null;
   }
 
-  @Override
-  public JsonNode getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-    return null;
-  }
-
-  @Override
-  public JsonNode getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-    return null;
-  }
 }

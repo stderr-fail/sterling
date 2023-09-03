@@ -16,7 +16,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-@SpringBootTest(classes = {DataRepositoryTestConfiguration.class})
+@SpringBootTest(classes = {DataRepositoryConfiguration.class})
 public class QuickTest {
 
   @Autowired
