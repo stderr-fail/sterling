@@ -25,7 +25,6 @@
 
   <modules>
     <module>http</module>
-    <module>prop-converters</module>
     <module>complex-data</module>
   </modules>
 

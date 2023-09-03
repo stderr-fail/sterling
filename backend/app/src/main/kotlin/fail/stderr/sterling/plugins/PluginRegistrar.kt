@@ -2,9 +2,7 @@ package fail.stderr.sterling.plugins
 
 import fail.stderr.sterling.plugin.Plugin
 import fail.stderr.sterling.plugin.contractold.HttpPlugin
-import fail.stderr.sterling.plugin.contractold.PropConverterPlugin
 import fail.stderr.sterling.plugin.http.PluginHttpEndpoint
-import fail.stderr.sterling.plugin.propconverter.PropConverter
 import fail.stderr.sterling.plugin.registrar.PluginRegistrar
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -20,7 +18,6 @@ class PluginRegistrar : PluginRegistrar {
   lateinit var requestMappingHandlerMapping: RequestMappingHandlerMapping
 
   val plugins: MutableList<Plugin> = mutableListOf()
-  val propConverters: MutableList<PropConverter<*, *>> = mutableListOf()
 
   fun register(plugin: Plugin) {
     synchronized(plugins) { plugins.add(plugin) }
@@ -28,18 +25,11 @@ class PluginRegistrar : PluginRegistrar {
 
   fun start() {
     processHttpPlugins();
-    processPropConverterPlugins();
   }
 
   protected fun processHttpPlugins() {
     plugins.filterIsInstance(HttpPlugin::class.java).forEach { plugin ->
       plugin.httpEndpoints?.forEach(::registerEndpoint)
-    }
-  }
-
-  protected fun processPropConverterPlugins() {
-    plugins.filterIsInstance(PropConverterPlugin::class.java).forEach { plugin ->
-      propConverters.addAll(plugin.propConverters);
     }
   }
 

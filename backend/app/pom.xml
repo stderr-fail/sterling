@@ -50,11 +50,6 @@
     </dependency>
     <dependency>
       <groupId>fail.stderr.sterling.plugins</groupId>
-      <artifactId>prop-converters</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>fail.stderr.sterling.plugins</groupId>
       <artifactId>complex-data</artifactId>
       <version>${project.version}</version>
     </dependency>
