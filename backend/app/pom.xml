@@ -36,7 +36,25 @@
 
     <dependency>
       <groupId>fail.stderr.sterling</groupId>
+      <artifactId>plugin-impl</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>fail.stderr.sterling</groupId>
       <artifactId>data-repository</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>fail.stderr.sterling</groupId>
+      <artifactId>models</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>fail.stderr.sterling</groupId>
+      <artifactId>tree</artifactId>
       <version>${project.version}</version>
     </dependency>
 

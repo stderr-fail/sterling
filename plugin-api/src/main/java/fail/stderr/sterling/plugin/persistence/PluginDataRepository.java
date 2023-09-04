@@ -24,8 +24,8 @@ public interface PluginDataRepository {
 
   @Nullable Long getLong(@NotNull String prop);
 
-  <T extends ComplexDataValue> void setComplexValue(@NotNull String prop, @NotNull T value);
+  <T, CDV extends ComplexDataValue<T>> void setComplexValue(@NotNull String prop, @NotNull CDV value);
 
-  <T extends ComplexDataValue> @Nullable T getComplexValue(@NotNull String prop, @NotNull Class<T> type);
+  <T, CDV extends ComplexDataValue<T>> @Nullable T getComplexValue(@NotNull String prop, @NotNull Class<CDV> type);
 
 }

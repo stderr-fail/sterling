@@ -5,9 +5,10 @@ import fail.stderr.sterling.plugin.persistence.PluginDataRepository;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Instance-based data for a single plugin
+ */
 public class DefaultPluginDataRepository implements PluginDataRepository {
-
-
 
 
   @Override
@@ -56,12 +57,12 @@ public class DefaultPluginDataRepository implements PluginDataRepository {
   }
 
   @Override
-  public <T extends ComplexDataValue> void setComplexValue(@NotNull String prop, @NotNull T value) {
+  public <T, CDV extends ComplexDataValue<T>> void setComplexValue(@NotNull String prop, @NotNull CDV value) {
 
   }
 
   @Override
-  public <T extends ComplexDataValue> @Nullable T getComplexValue(@NotNull String prop, @NotNull Class<T> type) {
+  public <T, CDV extends ComplexDataValue<T>> @Nullable T getComplexValue(@NotNull String prop, @NotNull Class<CDV> type) {
     return null;
   }
 }

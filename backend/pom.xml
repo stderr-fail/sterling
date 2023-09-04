@@ -37,6 +37,7 @@
     <module>runner</module>
     <module>scripting</module>
     <module>tree</module>
+    <module>plugin-impl</module>
     <module>poc/scripts-poc</module>
     <module>poc/treemodel-poc</module>
     <module>data-repository</module>

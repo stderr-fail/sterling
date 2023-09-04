@@ -11,6 +11,7 @@ public class PluginData {
   protected Instant created;
   protected Instant modified;
   protected Integer version;
+
   protected JsonNode json;
 
   public Long getId() {
@@ -60,4 +61,5 @@ public class PluginData {
   public void setJson(JsonNode json) {
     this.json = json;
   }
+
 }

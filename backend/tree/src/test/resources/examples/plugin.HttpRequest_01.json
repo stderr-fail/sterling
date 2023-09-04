@@ -1,37 +1,48 @@
 {
   "id": "[UUID]",
-  "type": "plugin.Folder",
+  "serviceType": "plugin.Folder",
   "displayName": "My Project Plan",
   "data": {
-    "color": "red"
+    "color": {
+      "@class": "fail.stderr.sterling.treenode.StringTreeNodeData",
+      "value": "red"
+    }
   },
   "children": [
     {
       "id": "[UUID]",
-      "type": "plugin.HttpRequest",
+      "serviceType": "plugin.HttpRequest",
       "displayName": "Get root index",
       "data": {
+        "notBefore": {
+          "@class": "fail.stderr.sterling.treenode.ComplexTreeNodeData",
+          "wrapped":{
+            "@class": "fail.stderr.sterling.plugins.complexdata.data.InstantComplexDataValue",
+            "value": "2023-09-03T00:00:00.000000Z"
+          }
+        },
+        "maxResults": {
+          "@class": "fail.stderr.sterling.treenode.ComplexTreeNodeData",
+          "wrapped":{
+            "@class": "fail.stderr.sterling.plugins.complexdata.data.BigDecimalComplexDataValue",
+            "value": "123456789.123456789"
+          }
+        },
+        "enabled": {
+          "@class": "fail.stderr.sterling.treenode.BooleanTreeNodeData",
+          "value": true
+        },
+        "retryCount": {
+          "@class": "fail.stderr.sterling.treenode.IntegerTreeNodeData",
+          "value": 3
+        },
+        "soTimeout": {
+          "@class": "fail.stderr.sterling.treenode.LongTreeNodeData",
+          "value": 10000
+        },
         "method": {
-          "type": "primitive.String",
-          "data": {
-            "value": "GET"
-          }
-        },
-        "connectTimeoutMillis": {
-          "type": "primitive.Long",
-          "data": {
-            "value": 1000
-          }
-        },
-        "url": {
-          "type": "script.SpEL",
-          "data": {
-            "expression": "new String('http') + '://localhost:8080'"
-          }
-        },
-        "entity": {
-          "type": "null",
-          "data": null
+          "@class": "fail.stderr.sterling.treenode.StringTreeNodeData",
+          "value": "HTTP"
         }
       },
       "children": []
