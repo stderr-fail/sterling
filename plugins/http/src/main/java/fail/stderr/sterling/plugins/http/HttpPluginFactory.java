@@ -12,12 +12,12 @@ public class HttpPluginFactory implements RunnerPluginFactory, PersistencePlugin
 
   @Override
   public @NotNull RunnerPlugin create(@NotNull RunnerPluginCreateContext context) throws Exception {
-    return null;
+    return new HttpRunnerPlugin();
   }
 
   @Override
   public @NotNull PersistencePlugin create(@NotNull PersistencePluginCreateContext context) throws Exception {
-    return null;
+    return new HttpRunnerPlugin();
   }
 
 }
